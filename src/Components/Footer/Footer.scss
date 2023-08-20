@@ -1,15 +1,16 @@
 .footer {
   max-width: 100vw;
   padding-top: 20px;
-  border-top: 1px solid #7e7e7e;
+  border-top: 1px solid #ccc;
+  font-family: 'Monsterrat', sans-serif;
   .actions {
     margin: 0 60px;
-    padding: 20px 0;
+    padding: 10px 0;
     display: flex;
     justify-content: space-between;
     .subscribe {
       form {
-        position: inherit;
+        position: relative;
         .input-mail {
           input {
             width: 320px;
@@ -33,7 +34,7 @@
       display: flex;
       align-items: center;
       p {
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 700;
       }
       ul {
@@ -65,12 +66,15 @@
       display: flex;
       div {
         width: 22vw;
+        h4 {
+          font-size: 14px;
+        }
         ul {
           list-style-type: none;
           padding-left: 0;
           li {
-            padding: 6px 0;
-            font-size: 14px;
+            padding: 4px 0;
+            font-size: 12px;
             a {
               text-decoration: none;
               color: #000;
@@ -88,7 +92,6 @@
       align-items: flex-end;
       padding: 20px 0;
       p {
-
         font-size: 14px;
         font-weight: 700;
       }

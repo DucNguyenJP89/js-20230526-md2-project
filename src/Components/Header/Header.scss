@@ -1,26 +1,30 @@
 .header {
   width: 100%;
-  height: 80px;
+  height: 60px;
   background-color: #fff;
   box-shadow: 0 0 10px #ccc;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Monsterrat', sans-serif;
   .nav {
     display: flex;
     align-items: center;
     margin: 0 40px;
     img {
       height: 20px;
+      vertical-align: baseline;
     }
     ul.links {
       display: flex;
       justify-content: space-between;
-      column-gap: 10px;
+      column-gap: 20px;
       list-style-type: none;
       li a {
         text-decoration: none;
         color: #000;
+        font-size: 12px;
+        font-weight: 700;
       }
     }
     .nav-icon {
