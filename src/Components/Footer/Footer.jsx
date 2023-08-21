@@ -6,7 +6,7 @@ import { icon } from "@fortawesome/fontawesome-svg-core/import.macro";
 
 function Footer() {
   return (
-    <div className="footer">
+    <div className="p-footer">
       <div className="actions">
         <div className="subscribe">
           <form action="">

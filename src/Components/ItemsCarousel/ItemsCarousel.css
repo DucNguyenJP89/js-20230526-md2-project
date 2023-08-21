@@ -1,0 +1,62 @@
+.items-carousel {
+  display: flex;
+}
+
+.items-carousel .image-div {
+  width: 50%;
+}
+
+.items-carousel .image-div img {
+  width: 100%;
+}
+
+.items-carousel .image-carousel {
+  width: 50%;
+}
+
+.image-carousel {
+  position: relative;
+}
+
+.image-carousel .carousel-title {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 60px;
+}
+
+.carousel-title .cap-text {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.carousel-title .cap-links a {
+  color: #000;
+  font-weight: 700;
+  font-size: 14px;
+  margin: 0 12px;
+}
+
+.carousel-caption {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+}
+
+.carousel-caption h5 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 20%;
+}
+
+.carousel-indicators button {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50%;
+}

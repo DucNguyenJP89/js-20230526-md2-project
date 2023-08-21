@@ -6,7 +6,7 @@ import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 
 function Header() {
   return (
-    <div className="header">
+    <div className="p-header">
       <div className="nav">
         <NavLink to={'./'}><img src="https://www.pedroshoes.com/on/demandware.static/Sites-pd-international-Site/-/default/dwcec278f2/images/logo.svg" alt="pedro-logo" /></NavLink>
         <ul className="links">

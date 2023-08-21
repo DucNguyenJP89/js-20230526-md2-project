@@ -1,0 +1,21 @@
+.home-carousel .carousel .carousel-item {
+  position: relative;
+}
+.home-carousel .carousel .carousel-item .carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  text-align: left;
+  color: #fff !important;
+  font-weight: bold !important;
+}
+
+.home-carousel .carousel .carousel-item .carousel-caption h5 {
+  margin: 0;
+  font-weight: bold !important;
+}
+
+.home-carousel .carousel .carousel-item .carousel-caption p {
+  margin: 0;
+  font-size: 14px;
+}
