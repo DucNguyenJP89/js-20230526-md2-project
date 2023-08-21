@@ -10,9 +10,9 @@ function Header() {
       <div className="nav">
         <NavLink to={'./'}><img src="https://www.pedroshoes.com/on/demandware.static/Sites-pd-international-Site/-/default/dwcec278f2/images/logo.svg" alt="pedro-logo" /></NavLink>
         <ul className="links">
-          <li><NavLink>NEW</NavLink></li>  
-          <li><NavLink>WOMEN</NavLink></li>  
-          <li><NavLink>MEN</NavLink></li>  
+          <li><NavLink to={'./catalog/new'}>NEW</NavLink></li>  
+          <li><NavLink to={'./catalog/women'}>WOMEN</NavLink></li>  
+          <li><NavLink to={'./catalog/men'}>MEN</NavLink></li>  
         </ul>
       </div>
       <div className="nav">

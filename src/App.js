@@ -5,6 +5,11 @@ import Header from './Components/Header/Header';
 import Homepage from './Pages/Homepage/Homepage';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Register/Register';
+import NotFound from './Pages/NotFound/NotFound';
+import ProductsList from './Pages/ProductsList/ProductsList';
+import ProductsListByType from './Pages/ProductsListByType/ProductsListByType';
+import ProductsListByCategory from './Pages/ProductsListByCategory/ProductsListByCategory';
+import ProductDetails from './Pages/ProductDetails/ProductDetails';
 
 function App() {
   return (
@@ -12,8 +17,14 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/item/:id" element={<ProductDetails />} /> 
+        <Route path="/catalog/:type" element={<ProductsList />}>
+          <Route index element={<ProductsListByType />} />
+          <Route path=":category" element={<ProductsListByCategory />} />
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </div>
