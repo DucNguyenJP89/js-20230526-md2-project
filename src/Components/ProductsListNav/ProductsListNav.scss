@@ -1,0 +1,21 @@
+.products-list-nav {
+  padding-top: 60px;
+  font-family: 'Monsteratt', sans-serif;
+  .new-container {
+    width: 100%;
+    position: relative;
+    img {
+      width: 100%;
+    }
+    .new-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      h2 {
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+  }
+}

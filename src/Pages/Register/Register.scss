@@ -35,6 +35,9 @@
         input::placeholder {
           color: #ccc;
         }
+        input.error-input {
+          border: 1px solid red;
+        }
         button {
           width: 100%;
           margin-top: 10px;
