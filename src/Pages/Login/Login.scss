@@ -14,7 +14,7 @@
     column-gap: 20px;
     .login, .register {
       width: 480px;
-      height: 320px;
+      height: 400px;
       padding: 10px 16px;
       border: 1px solid #ccc;
       h3 {
@@ -39,6 +39,14 @@
           input::placeholder {
             color: #ccc;
           }
+          input.error-input {
+            border: 1px solid red;
+          }
+          .error {
+            text-align: right;
+            color: red;
+            font-size: 12px;
+          }
           button {
             font-family: 'Playfair Display', sans-serif;
             font-size: 12px;
@@ -47,6 +55,7 @@
             background-color: #333;
             border: none;
             padding: 12px;
+            margin: 10px 0;
           }
           button:hover {
             cursor: pointer;

@@ -46,7 +46,8 @@ function Register() {
       }).catch((e) => console.log(e));
     }
     if (Object.keys(errors).length === 0 && submitting) {
-      submitData()
+      submitData();
+      setSubmitting(false);
     } else {
       console.log("Errors");
     }
