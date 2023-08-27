@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.scss";
 
 function Register() {
+  const navigate = useNavigate();
   const [users, setUsers] = useState([]);
   const [userInput, setUserInput] = useState({
     first: "",
@@ -18,6 +20,37 @@ function Register() {
   });
   const [errors, setErrors] = useState({});
   const [submitting, setSubmitting] = useState(false);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/users")
+      .then((res) => setUsers(res.data))
+      .catch((e) => console.log(e));
+  });
+  useEffect(() => {
+    const submitData = () => {
+      const formData = {
+        first: userInput.first,
+        last: userInput.last,
+        birthday: userInput.birthday,
+        gender: userInput.gender,
+        contact: userInput.contact,
+        email: userInput.email,
+        password: userInput.password,
+        newsletter: userInput.newsletter,
+        agree: userInput.agree,
+      };
+      axios.post("http://localhost:8080/users", formData).then((res) => {
+        alert('Registered successfully');
+        console.log(res.data);
+        navigate("/");
+      }).catch((e) => console.log(e));
+    }
+    if (Object.keys(errors).length === 0 && submitting) {
+      submitData()
+    } else {
+      console.log("Errors");
+    }
+  }, [errors, submitting, userInput]); // eslint-disable-line react-hooks/exhaustive-deps
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUserInput((userInput) => ({
@@ -32,33 +65,63 @@ function Register() {
       [name]: !userInput[name],
     }));
   };
+  const isExistingUser = (email) => {
+    let userIndex = users.findIndex((user) => user.email === email);
+    console.log(userIndex);
+    if (userIndex !== -1) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+  const validPassword = (password) => {
+    const pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
+    const result = pattern.test(password);
+    console.log(result);
+    return result;
+  };
   const validateValue = (userInput) => {
     let errors = {};
-    for (const name in userInput) {
-      if (userInput[name] === "") {
-        errors[name] = "This field is required";
+    if (userInput.first === '') {
+      errors.first = "This field is required";
+    }
+    if (userInput.last === '') {
+      errors.last = "This field is required";
+    }
+    if (userInput.birthday === '') {
+      errors.birthday = "This field is required";
+    }
+    if (userInput.gender === '') {
+      errors.gender = "This field is required";
+    }
+    if (userInput.contact === '') {
+      errors.contact = "This field is required";
+    } else {
+      let contactRegex = /^\d{10}$/;
+      if (!contactRegex.test(userInput.contact)) {
+        errors.contact = "Invalid phone number";
+      }
+    }
+    if (userInput.email === '') {
+      errors.email = "This field is required";
+    } else {
+      if (isExistingUser(userInput.email)) {
+        errors.email = "User existed. Please try another email.";
+      } else {
+        if (!validPassword(userInput.password)) {
+          errors.password = "Password must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters";
+        }
+        if (userInput.password !== userInput.confirmPw) {
+          errors.confirmPw = "Password did not match.";
+        }
       }
     }
     return errors;
-  };
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validateValue(userInput));
     setSubmitting(true);
-  };
-  const submitData = () => {
-    const formData = {
-      first: userInput.first,
-      last: userInput.last,
-      birthday: userInput.birthday,
-      gender: userInput.gender,
-      contact: userInput.contact,
-      email: userInput.email,
-      password: userInput.password,
-      newsletter: userInput.newsletter,
-      agree: userInput.agree,
-    };
-    console.log(formData);
   };
   return (
     <div className="register-page">
@@ -217,7 +280,7 @@ function Register() {
             {errors.agree && <div className="error">{errors.agree}</div>}
           </div>
           <div className="input-item">
-            <button onClick={handleSubmit}>Create An Account</button>
+            <button className={!userInput.agree ? 'disabled' : ''} onClick={handleSubmit} disabled={userInput.agree ? false : true}>Create An Account</button>
           </div>
         </form>
       </div>
