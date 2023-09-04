@@ -1,6 +1,6 @@
 .products-list-nav {
   padding-top: 60px;
-  font-family: 'Monsteratt', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   .new-container {
     width: 100%;
     position: relative;
@@ -16,6 +16,37 @@
       h2 {
         font-size: 24px;
         font-weight: 700;
+      }
+    }
+  }
+  .type-container {
+    width: 50%;
+    text-align: center;
+    margin: 20px auto;
+    h2 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 48px;
+    }
+    p {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+  .menu-links {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+    margin: 20px auto;
+    margin-bottom: 60px;
+    a {
+      text-decoration: none;
+      color: #000;
+      font-size: 12px;
+      width: 20%;
+      img {
+        width: 100%;
       }
     }
   }

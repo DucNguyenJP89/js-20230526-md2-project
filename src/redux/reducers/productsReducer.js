@@ -21,3 +21,12 @@ export const selectedProductReducer = (state={}, {type, payload}) => {
       return state;
   }
 }
+
+export const categoryReducer = (state={}, {type, payload}) => {
+  switch (type) {
+    case typeActions.SET_CATEGORY:
+      return { ...state, ...payload };
+    default:
+      return state;
+  }
+}

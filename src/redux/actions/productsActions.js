@@ -13,3 +13,10 @@ export const selectedProduct = (product) => {
     payload: product,
   }
 }
+
+export const setCategory = (category) => {
+  return {
+    type: typeActions.SET_CATEGORY,
+    payload: category,
+  }
+}
