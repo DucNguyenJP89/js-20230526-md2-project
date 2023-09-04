@@ -1,22 +1,16 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux';
+import ItemCard from '../../Components/ItemCard/ItemCard';
 
 function ProductsListByType() {
-  const params = useParams();
+  const { type } = useParams();
   const products = useSelector((state) => state.allProducts.products);
-  const productsByType = products.filter((product) => product.type === params.type);
+  const productsByType = type === 'new' ? products : products.filter((product) => product.type === type);
   return (
-    <div>
-      <h3>Products List by Type</h3>
-      <p>Type: {params.type}</p>
+    <div className="products-list">
       {productsByType && productsByType.map((product) => (
-        <div>
-          <p>{product.id}</p>
-          <p>{product.productName}</p>
-          <p>{product.price}</p>
-          <p>{product.description}</p>
-        </div>
+        <ItemCard item={product} key={product.id}/>
       ))}
     </div>
   )

@@ -2,22 +2,32 @@ import React, { useState, useEffect } from "react";
 import "./ProductDetails.scss";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import { selectedProduct } from "../../redux/actions/productsActions";
 
 function ProductDetails() {
-  const params = useParams();
-  const [product, setProduct] = useState({});
+  const { id } = useParams();
+  const dispatch = useDispatch();
+  let product = useSelector((state) => state.product);
+  console.log(product);
   const [isLoading, setLoading] = useState(true);
+  const fetchProductDetails = async (id) => {
+    const response = await axios.get(`http://localhost:8080/products/${id}`).catch((e) => console.log(e));
+    dispatch(selectedProduct(response.data));
+  };
+  const calShippingDate = () => {
+    let shippingDate = new Date();
+    shippingDate.setDate(shippingDate.getDate()+3);
+    return shippingDate.toDateString();
+  }
   useEffect(() => {
-    axios.get(`http://localhost:8080/products/${params.id}`).then((res) => {
-      console.log(res.data);
-      setProduct(res.data);
-      setLoading(false);
-    }).catch((err) => console.log(err));
-  }, [params]);
+    fetchProductDetails(id);
+    setLoading(false);
+  }, [id]);
   return !isLoading && product ? (
     <div className="product-details-container">
       <div className="image-list">
-        {product.imgPath.map((image, i) => (
+        {product?.imgPath?.map((image, i) => (
           <img key={i} src={image} alt={product.productName}/>
         ))}
       </div>
@@ -46,7 +56,7 @@ function ProductDetails() {
         <div className="break-line"></div>
         <div className="shipping-info">
           <h3>Shipping & Returns</h3>
-          <p>Earliest Delivery Date: <span>02 September 2023</span></p>
+          <p>Earliest Delivery Date: <span>{calShippingDate()}</span></p>
           <div className="shipping-note">
             <p><span>Free Standard Delivery</span> on all orders</p>
             <p>Find out more about our <span>Returns & Refunds</span></p>

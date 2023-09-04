@@ -4,6 +4,7 @@ import ProductsListNav from '../../Components/ProductsListNav/ProductsListNav'
 import axios from 'axios'
 import { useDispatch } from "react-redux"
 import { setProducts } from '../../redux/actions/productsActions'
+import "./ProductsList.scss"
 
 function ProductsList() {
   const dispatch = useDispatch();
