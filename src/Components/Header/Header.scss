@@ -6,11 +6,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: 'Monsterrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   .nav {
     display: flex;
     align-items: center;
-    margin: 0 40px;
+    margin: 0 20px;
     img {
       height: 20px;
       vertical-align: middle;
@@ -29,9 +29,19 @@
         font-weight: 700;
       }
     }
+    a {
+      text-decoration: none;
+      color: #000;
+    }
     .nav-icon {
       padding: 0 10px;
       margin: 0 5px;
+    }
+    .shopping-cart {
+      .nav-icon {
+        margin-bottom: 5px;
+        font-size: 22px;
+      }
     }
     .divider {
       height: 14px;

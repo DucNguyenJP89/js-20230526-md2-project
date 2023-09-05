@@ -19,8 +19,10 @@ function Login() {
       .catch((e) => console.log(e));
   }, []);
   useEffect(() => {
+    let loginUser = users.find((user) => user.email === userInput.email);
     if (Object.keys(errors).length === 0 && submitting) {
       alert('Logged in successfully');
+      localStorage.setItem('loginUser', JSON.stringify(loginUser));
       navigate("/");
     }
   }, [errors, submitting, userInput]); // eslint-disable-line react-hooks/exhaustive-deps

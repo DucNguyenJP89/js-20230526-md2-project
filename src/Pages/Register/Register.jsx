@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import "./Register.scss";
 
@@ -42,7 +42,7 @@ function Register() {
       axios.post("http://localhost:8080/users", formData).then((res) => {
         alert('Registered successfully');
         console.log(res.data);
-        navigate("/");
+        navigate("/login");
       }).catch((e) => console.log(e));
     }
     if (Object.keys(errors).length === 0 && submitting) {
@@ -274,8 +274,8 @@ function Register() {
                 onChange={handleCheck}
               />
               <label htmlFor="agree">
-                I agree to PEDRO's <a href="">Terms & Conditions</a> and{" "}
-                <a href="">Privacy Policy</a>
+                I agree to PEDRO's <Link to={'./'}>Terms & Conditions</Link> and
+                <Link to={'./'}>Privacy Policy</Link>
               </label>
             </div>
             {errors.agree && <div className="error">{errors.agree}</div>}
