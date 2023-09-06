@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "./Header.scss";
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { ShoppingOutlined } from '@ant-design/icons';
+import { ShoppingOutlined, ShoppingFilled } from '@ant-design/icons';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
 import { useSelector } from 'react-redux';
 import CartItem from '../CartItem/CartItem';
@@ -17,6 +17,7 @@ function Header() {
   const [ openMenu, setOpenMenu ] = useState(false);
   const [ openCart, setOpenCart ] = useState(false);
   const [ cartTotal, setCartTotal ] = useState(0);
+  const [ cartItemNumber, setCartItemNumber ] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
@@ -34,7 +35,10 @@ function Header() {
       return result;
     }, 0);
     setCartTotal(cartTotal);
-    setOpenCart(true);
+    if (initCart.length > 0) {
+      setOpenCart(true);
+      setCartItemNumber(initCart.length);
+    };
   }, [initCart]);
   const handleLogout = () => {
     setLoginUser({});
@@ -59,8 +63,12 @@ function Header() {
           <FontAwesomeIcon icon={icon({name: 'user', style: 'regular'})} className="nav-icon" size="lg" onClick={() => setOpenMenu(!openMenu)}/>
           <div className="divider"></div>
           <div className="shopping-cart" onClick={() => setOpenCart(!openCart)}>
-            <ShoppingOutlined className="nav-icon"/>
-            <span className="cart-number"></span>
+            { cart.length > 0 ? (
+              <div>
+                <ShoppingFilled className="nav-icon" />
+                <span className="cart-number">{cartItemNumber}</span>
+              </div>
+            ) : (<ShoppingOutlined className="nav-icon"/>)}
           </div>
         </div>
       </div>
@@ -101,7 +109,7 @@ function Header() {
               <div className="total-text">Subtotal:</div>
               <div className="total-number">S${cartTotal}</div>
             </div>
-            <button>VIEW BAG DETAILS</button>
+            <button onClick={() => navigate('./cart')}>VIEW BAG DETAILS</button>
           </div>
           ) : (
             <div className="empty-cart">You have 0 items in your bag</div>

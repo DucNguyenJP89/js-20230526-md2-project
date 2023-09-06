@@ -10,6 +10,7 @@ import ProductsList from './Pages/ProductsList/ProductsList';
 import ProductsListByType from './Pages/ProductsListByType/ProductsListByType';
 import ProductsListByCategory from './Pages/ProductsListByCategory/ProductsListByCategory';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
+import CartDetails from './Pages/CartDetails/CartDetails';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route index element={<ProductsListByType />} />
           <Route path=":category" element={<ProductsListByCategory />} />
         </Route>
+        <Route path="/cart" element={<CartDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

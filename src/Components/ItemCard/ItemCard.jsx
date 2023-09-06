@@ -40,7 +40,6 @@ function ItemCard({ item }) {
       className="item-card"
       onMouseEnter={() => setControls(true)}
       onMouseLeave={() => setControls(false)}
-      onClick={() => navigate(`/item/${id}`)}
     >
       <div className="img-carousel">
         <Carousel
@@ -50,7 +49,7 @@ function ItemCard({ item }) {
           interval={null}
         >
           {imgPath.map((img, i) => (
-            <Carousel.Item key={i}>
+            <Carousel.Item key={i} onClick={() => navigate(`/item/${id}`)}>
               <img className="d-block w-100" src={img} alt={productName} />
             </Carousel.Item>
           ))}
