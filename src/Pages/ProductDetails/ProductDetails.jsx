@@ -42,6 +42,7 @@ function ProductDetails() {
       const newItem = {
         product_id: product.id,
         product_name: product.productName,
+        product_img: product.imgPath[0],
         product_price: product.price,
         quantity: 1
       };

@@ -28,6 +28,7 @@ function ItemCard({ item }) {
       const newItem = {
         product_id: id,
         product_name: productName,
+        product_img: imgPath[0],
         product_price: price,
         quantity: 1,
       };

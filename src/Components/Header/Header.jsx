@@ -4,12 +4,19 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { ShoppingOutlined } from '@ant-design/icons';
 import { icon } from '@fortawesome/fontawesome-svg-core/import.macro'
+import { useSelector } from 'react-redux';
+import CartItem from '../CartItem/CartItem';
 
 function Header() {
   // Check if exists loginUser in localStorage and display in Header
+  let initCart = useSelector((state) => state.cart.carts);
+  console.log(initCart);
+  const [ cart, setCart ] = useState(initCart);
   const user = localStorage.getItem('loginUser');
   const [ loginUser, setLoginUser ] = useState({});
   const [ openMenu, setOpenMenu ] = useState(false);
+  const [ openCart, setOpenCart ] = useState(false);
+  const [ cartTotal, setCartTotal ] = useState(0);
   const navigate = useNavigate();
   useEffect(() => {
     if (user) {
@@ -20,6 +27,15 @@ function Header() {
       console.log('No user logged in');
     }
   }, [user]);
+  useEffect(() => {
+    setCart(initCart);
+    const cartTotal = initCart.reduce((total, item) => {
+      const result = total + (Number(item.product_price) * item.quantity);
+      return result;
+    }, 0);
+    setCartTotal(cartTotal);
+    setOpenCart(true);
+  }, [initCart]);
   const handleLogout = () => {
     setLoginUser({});
     setOpenMenu(false);
@@ -42,7 +58,7 @@ function Header() {
           <div className="divider"></div>
           <FontAwesomeIcon icon={icon({name: 'user', style: 'regular'})} className="nav-icon" size="lg" onClick={() => setOpenMenu(!openMenu)}/>
           <div className="divider"></div>
-          <div className="shopping-cart">
+          <div className="shopping-cart" onClick={() => setOpenCart(!openCart)}>
             <ShoppingOutlined className="nav-icon"/>
             <span className="cart-number"></span>
           </div>
@@ -66,6 +82,30 @@ function Header() {
               navigate('./register');
               }}>Create An Account</button>
           </div>}
+        </div>
+      }
+      { openCart && 
+        <div className="cart-container">
+          { cart.length > 0 ? (
+          <div className="user-cart">
+            <div className="cart-title">MY SHOPPING BAG</div>
+            <div className="cart-list">
+              {cart.map((item, i) => (
+                <div key={i}>
+                  <CartItem item={item} key={item.product_id} />
+                  <div className="item-divider"></div>
+                </div>
+              ))}
+            </div>
+            <div className="cart-total">
+              <div className="total-text">Subtotal:</div>
+              <div className="total-number">S${cartTotal}</div>
+            </div>
+            <button>VIEW BAG DETAILS</button>
+          </div>
+          ) : (
+            <div className="empty-cart">You have 0 items in your bag</div>
+          )}
         </div>
       }
     </div>
