@@ -13,3 +13,10 @@ export const editItemQuantity = (product) => {
     payload: product
   }
 }
+
+export const removeCartItem = (id) => {
+  return {
+    type: typeActions.REMOVE_CART_ITEM,
+    payload: id
+  }
+}

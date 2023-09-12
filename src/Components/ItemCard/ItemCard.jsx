@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart, editItemQuantity } from "../../redux/actions/cartActions";
 
 function ItemCard({ item }) {
-  const { id, imgPath, productName, price } = item;
+  const { id, imgPath, productName, price, colour } = item;
   const [showControls, setControls] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -16,9 +16,15 @@ function ItemCard({ item }) {
     const item = cart.find((item) => item.product_id === id);
     if (item) {
       console.log("Item found");
+      let itemQuantity = item.quantity;
+      if (itemQuantity < 5) {
+        itemQuantity += 1;
+      } else {
+        alert('You can only order 5 pieces for each item');
+      }
       const newItem = {
         ...item,
-        quantity: item.quantity + 1,
+        quantity: itemQuantity,
       };
       dispatch(editItemQuantity(newItem));
     } else {
@@ -27,6 +33,7 @@ function ItemCard({ item }) {
         product_id: id,
         product_name: productName,
         product_img: imgPath[0],
+        product_colour: colour,
         product_price: price,
         quantity: 1,
       };
