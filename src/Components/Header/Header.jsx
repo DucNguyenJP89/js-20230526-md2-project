@@ -31,10 +31,9 @@ function Header() {
   useEffect(() => {
     setCart(initCart);
     const cartTotal = initCart.reduce((total, item) => {
-      const result = total + (Number(item.product_price) * item.quantity);
-      return result;
+      return total + (item.product_price * item.quantity);
     }, 0);
-    setCartTotal(cartTotal);
+    setCartTotal(cartTotal.toLocaleString());
     if (initCart.length > 0) {
       setOpenCart(true);
       setCartItemNumber(initCart.length);

@@ -11,7 +11,6 @@ function ItemCard({ item }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart.carts);
-  console.log(cart);
   const handleCartItem = (e) => {
     e.stopPropagation();
     const item = cart.find((item) => item.product_id === id);
@@ -21,7 +20,6 @@ function ItemCard({ item }) {
         ...item,
         quantity: item.quantity + 1,
       };
-      console.log(newItem);
       dispatch(editItemQuantity(newItem));
     } else {
       console.log("No item found");

@@ -1,4 +1,169 @@
 .cart-details-container {
-  margin-top: 60px;
-  padding: 80px 0;
+  width: 90%;
+  margin: 60px auto;
+  padding: 80px;
+  display: flex;
+  font-family: 'Montserrat', sans-serif;
+  .shopping-cart-list {
+    width: 65%;
+    h2 {
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .cart-table {
+      width: 100%;
+      margin: 20px 0;
+      .table-title {
+        padding: 20px 0;
+        border-bottom: 1px solid #000;
+        display: flex;
+        align-items: center;
+        font-weight: 700;
+        font-size: 14px;
+        div.items-cnt {
+          text-align: left;
+          width: 15%;
+        }
+        div.c-product {
+          width: 40%;
+          text-align: left;
+        }
+        div {
+          width: 10%;
+        }
+      }
+      .cart-details {
+        width: 100%;
+        .details-title {
+          background-color: #f0f0f0;
+          text-align: left;
+          padding: 20px;
+          margin-top: 20px;
+          font-size: 16px;
+          font-weight: 700;
+        }
+        .details-list {
+          border: 1px solid #f0f0f0;
+          padding: 10px 0;
+          .item-info {
+            display: flex;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: center;
+            margin-left: 10px;
+            padding: 20px 10px;
+            font-size: 14px;
+            img {
+              width: 15%;
+              margin-right: 10px;
+            }
+            .item-specs {
+              width: 40%;
+              align-self: flex-start;
+              font-size: 14px;
+              text-align: left;
+              * {
+                margin: 4px 0;
+              }
+              .item-name {
+                font-weight: 700;
+              }
+              .item-id {
+                font-size: 12px;
+                color: #666;
+              }
+            }
+            .item-price, .item-qty, .item-subtotal {
+              width: 10%;
+            }
+            .item-qty {
+              form {
+                select {
+                  padding: 6px;
+                }
+              }
+            }
+            .item-subtotal {
+              font-weight: 700;
+            }
+            .item-action {
+              width: 15%;
+              text-align: center;
+            }
+          }
+          .item-info:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+  .cart-summary-container {
+    width: 35%;
+    padding: 0 10px;
+    .summary-details {
+      width: 100%;
+      padding: 10px 20px;
+      border: 1px solid #000;
+      .title {
+        font-size: 20px;
+        font-weight: 700;
+        padding: 10px 0;
+        border-bottom: 1px solid #000;
+      }
+      .subtitle-text {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        font-size: 14px;
+        font-weight: 500;
+        border-bottom: 1px solid #000;
+      }
+      .total-text {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+        font-size: 16px;
+        font-weight: 700;
+      }
+      .check-out-btn {
+        width: 100%;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #000;
+        button {
+          width: 100%;
+          border: none;
+          padding: 10px 0;
+          background-color: #333;
+          color: #fff;
+          font-size: 14px;
+          font-weight: 700;
+        }
+        button:hover {
+          background-color: #000;
+        }
+      }
+      .payment-method-cards {
+        padding: 15px 0;
+        font-size: 14px;
+        font-weight: 700;
+        p {
+          margin-bottom: 8px;
+        }
+        .cards-list {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          column-gap: 4px;
+          .card-item {
+            img {
+              border: 1px solid #999;
+              border-radius: 4px;
+              width: 32px;
+              height: 22px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

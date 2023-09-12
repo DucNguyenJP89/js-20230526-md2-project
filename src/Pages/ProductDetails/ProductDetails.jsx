@@ -11,8 +11,6 @@ function ProductDetails() {
   const dispatch = useDispatch();
   let product = useSelector((state) => state.product);
   let cart = useSelector((state) => state.cart.carts);
-  console.log(product);
-  console.log(cart);
   const [isLoading, setLoading] = useState(true);
   const fetchProductDetails = async (id) => {
     const response = await axios.get(`http://localhost:8080/products/${id}`).catch((e) => console.log(e));
