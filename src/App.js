@@ -11,6 +11,8 @@ import ProductsListByType from './Pages/ProductsListByType/ProductsListByType';
 import ProductsListByCategory from './Pages/ProductsListByCategory/ProductsListByCategory';
 import ProductDetails from './Pages/ProductDetails/ProductDetails';
 import CartDetails from './Pages/CartDetails/CartDetails';
+import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import CheckOut from './Pages/CheckOut/CheckOut';
 
 function App() {
   return (
@@ -24,6 +26,9 @@ function App() {
           <Route path=":category" element={<ProductsListByCategory />} />
         </Route>
         <Route path="/cart" element={<CartDetails />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/check-out" element={<CheckOut />} />
+        </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<NotFound />} />

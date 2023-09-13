@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import "./CartDetails.scss";
-import { editItemQuantity } from "../../redux/actions/cartActions";
 import DetailItem from "../../Components/DetailItem/DetailItem";
 
 function CartDetails() {
@@ -57,7 +56,7 @@ function CartDetails() {
               <div>S${cartTotal}</div>
             </div>
             <div className="check-out-btn">
-              <button>CHECKOUT</button>
+              <button onClick={() => navigate('/check-out')}>CHECKOUT</button>
             </div>
             <div className="payment-method-cards">
               <p>Accepted Payment Methods</p>
