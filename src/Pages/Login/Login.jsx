@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 import "./Login.scss";
 
 function Login() {
@@ -21,9 +22,15 @@ function Login() {
   useEffect(() => {
     let loginUser = users.find((user) => user.email === userInput.email);
     if (Object.keys(errors).length === 0 && submitting) {
-      alert('Logged in successfully');
       localStorage.setItem('loginUser', JSON.stringify(loginUser));
-      navigate("/");
+      Swal.fire({
+        icon: "success",
+        title: "Logged in successfully!",
+        confirmButtonText: "To Homepage",
+        confirmButtonColor: "#000"
+      }).then(() => {
+        navigate("/");
+      })
     }
   }, [errors, submitting, userInput]); // eslint-disable-line react-hooks/exhaustive-deps
   const handleInput = (e) => {

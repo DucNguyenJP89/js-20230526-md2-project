@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
+import Swal from "sweetalert2";
 import "./Register.scss";
 
 function Register() {
@@ -40,9 +41,13 @@ function Register() {
         agree: userInput.agree,
       };
       axios.post("http://localhost:8080/users", formData).then((res) => {
-        alert('Registered successfully');
-        console.log(res.data);
-        navigate("/login");
+        Swal.fire({
+          icon: "success",
+          title: "You are ready to shop with us!",
+          confirmButtonText: "Login"
+        }).then(() => {
+          navigate("/login");
+        })
       }).catch((e) => console.log(e));
     }
     if (Object.keys(errors).length === 0 && submitting) {

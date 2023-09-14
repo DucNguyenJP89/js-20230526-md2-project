@@ -164,7 +164,7 @@ function Header() {
               </button>
             </div>
           ) : (
-            <div className="empty-cart">You have 0 items in your bag</div>
+            <div className="empty-cart">You have <b>0</b> item(s) in your bag</div>
           )}
         </div>
       )}
