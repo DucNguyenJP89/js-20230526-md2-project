@@ -78,8 +78,8 @@ function Homepage() {
   return (
     <div className="homepage">
       <HomeCarousel bannerCarousel={featureBanner} isControls={false}/>
-      <ItemsCarousel items={itemsCarouselHer} />
-      <ItemsCarousel items={itemsCarouselHim} />
+      <ItemsCarousel items={itemsCarouselHer} link="women"/>
+      <ItemsCarousel items={itemsCarouselHim} link="men"/>
       <HomeCarousel bannerCarousel={bannerCarousel} isControls={true} />
     </div>
   )

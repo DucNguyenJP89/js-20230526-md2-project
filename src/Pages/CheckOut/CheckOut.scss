@@ -1,0 +1,229 @@
+.checkout-nav {
+  padding: 40px 0;
+  a {
+    img {
+      width: 120px;
+    }
+  }
+}
+.checkout-page {
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px;
+  font-family: "Montserrat", sans-serif;
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .checkout-container {
+    width: 100%;
+    display: flex;
+    .delivery-info {
+      width: 65%;
+      text-align: left;
+      .delivery-title {
+        width: 100%;
+        background-color: #000;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 10px;
+        margin: 16px 0;
+      }
+      .delivery-method {
+        .title {
+          font-size: 14px;
+          font-weight: 700;
+          margin: 16px 0;
+        }
+        .delivery-method-box {
+          width: 60%;
+          padding: 16px;
+          border: 1px solid #000;
+          display: flex;
+          .delivery-checkbox {
+            display: block;
+            position: relative;
+            padding-left: 35px;
+            margin-bottom: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            input {
+              position: absolute;
+              opacity: 0;
+              cursor: pointer;
+              height: 0;
+              width: 0;
+            }
+            .checkmark {
+              position: absolute;
+              top: 0;
+              left: 0;
+              height: 20px;
+              width: 20px;
+              background-color: #eee;
+            }
+            input:checked ~ .checkmark {
+              background-color: #000;
+            }
+            .checkmark::after {
+              content: "";
+              position: absolute;
+              display: none;
+            }
+            input:checked ~ .checkmark:after {
+              display: block;
+            }
+            .checkmark::after {
+              left: 7px;
+              top: 4px;
+              width: 5px;
+              height: 10px;
+              border: solid white;
+              border-width: 0 2px 2px 0;
+              -webkit-transform: rotate(45deg);
+              -ms-transform: rotate(45deg);
+              transform: rotate(45deg);
+            }
+          }
+          .delivery-text-group {
+            font-size: 14px;
+            .delivery-text-title {
+              display: flex;
+              justify-content: space-between;
+              font-weight: 700;
+            }
+            .delivery-text-desc {
+              padding-right: 10px;
+              margin: 16px 0;
+            }
+          }
+        }
+      }
+      .delivery-form {
+        width: 100%;
+        margin-top: 30px;
+        .form-title {
+          margin: 10px 0;
+          div {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          div:last-child {
+            font-weight: 400;
+            color: #999;
+          }
+        }
+        input {
+          padding: 8px;
+          border: 1px solid #ccc;
+        }
+        input::placeholder {
+          color: #999;
+        }
+        input.error {
+          border: 1px solid red;
+        }
+        .error-text {
+          color: red;
+          font-size: 12px;
+        }
+        .customer-name {
+          display: flex;
+          justify-content: space-between;
+          padding-bottom: 10px;
+          div {
+            width: 49%;
+            input {
+              width: 100%;
+            }
+          }
+        }
+        .customer-address {
+          padding: 20px 0;
+          label {
+            font-size: 14px;
+            font-weight: 700;
+          }
+          input {
+            width: 100%;
+          }
+        }
+        .customer-contact {
+          padding: 20px 0;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          label {
+            width: 20%;
+            font-size: 14px;
+            font-weight: 700;
+          }
+          div {
+            width: 60%;
+            input {
+              width: 100%;
+            }
+          }
+        }
+        .submit-btn {
+          padding: 20px 0;
+          width: 100%;
+          text-align: center;
+          button {
+            width: 40%;
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Playfair Display', sans-serif;
+            border: none;
+            background-color: #333;
+            color: #fff;
+          }
+          button:hover {
+            background-color: #000;
+          }
+        }
+      }
+    }
+    .order-summary-container {
+      width: 35%;
+      padding: 0 10px;
+      .summary-details {
+        width: 100%;
+        border: 1px solid #000;
+        margin-top: 16px;
+        padding: 10px;
+        .title {
+          padding: 15px 0;
+          font-family: 'Playfair Display', sans-serif;
+          font-size: 14px;
+          font-weight: 700;
+          border-bottom: 1px solid #000;
+        }
+        .subtotal-info {
+          padding: 15px 0;
+          font-size: 12px;
+          font-weight: 500;
+          border-bottom: 1px solid #999;
+          .subtotal-text, .delivery-text {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+          }
+        }
+        .total-info {
+          display: flex;
+          justify-content: space-between;
+          font-size: 16px;
+          font-weight: 700;
+          padding: 15px 0;
+        }
+      }
+    }
+  }
+}

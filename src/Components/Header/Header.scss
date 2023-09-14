@@ -143,12 +143,22 @@
     }
     button {
       width: 100%;
-      border: 1px solid #000;
-      background-color: #fff;
       padding: 10px 0;
       margin-bottom: 20px;
       font-size: 14px;
       font-weight: 700;
+    }
+    .checkout-btn {
+      border: none;
+      background-color: #333;
+      color: #fff;
+    }
+    .checkout-btn:hover {
+      background-color: #000;
+    }
+    .viewbag-btn {
+      border: 1px solid #000;
+      background-color: #fff;
     }
   }
 }

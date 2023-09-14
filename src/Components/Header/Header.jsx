@@ -145,6 +145,16 @@ function Header() {
                 <div className="total-number">S${cartTotal}</div>
               </div>
               <button
+                className="checkout-btn"
+                onClick={() => {
+                  setOpenCart(false);
+                  navigate("./check-out");
+                }}
+              >
+                CHECKOUT
+              </button>
+              <button
+                className="viewbag-btn"
                 onClick={() => {
                   setOpenCart(false);
                   navigate("./cart");

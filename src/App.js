@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
@@ -15,9 +15,11 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import CheckOut from './Pages/CheckOut/CheckOut';
 
 function App() {
+  const location = useLocation();
+  console.log(location.pathname);
   return (
     <div className="App">
-      <Header />
+      { location.pathname !== '/check-out' && <Header />}
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/item/:id" element={<ProductDetails />} /> 

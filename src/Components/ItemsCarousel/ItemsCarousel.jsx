@@ -3,7 +3,7 @@ import { Carousel } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import "./ItemsCarousel.css";
 
-function ItemsCarousel({ items }) {
+function ItemsCarousel({ items, link }) {
   const { imageDivPath, itemsList, order, capText } = items;
   return (
     <div className="items-carousel">
@@ -30,9 +30,9 @@ function ItemsCarousel({ items }) {
         <div className="carousel-title">
           <div className="cap-text">{capText}</div>
           <div className="cap-links">
-            <NavLink>NEW IN</NavLink>
-            <NavLink>BAGS</NavLink>
-            <NavLink>SHOES</NavLink>
+            <NavLink to={`/catalog/new`}>NEW IN</NavLink>
+            <NavLink to={`/catalog/${link}/bags`}>BAGS</NavLink>
+            <NavLink to={`/catalog/${link}/shoes`}>SHOES</NavLink>
           </div>
         </div>
       </div>

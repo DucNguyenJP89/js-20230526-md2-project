@@ -25,7 +25,7 @@ function Register() {
       .get("http://localhost:8080/users")
       .then((res) => setUsers(res.data))
       .catch((e) => console.log(e));
-  });
+  }, []);
   useEffect(() => {
     const submitData = () => {
       const formData = {
