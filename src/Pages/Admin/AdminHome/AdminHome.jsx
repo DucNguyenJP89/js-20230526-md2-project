@@ -3,6 +3,7 @@ import { Outlet } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../../../redux/actions/productsActions";
+import { setOrders } from "../../../redux/actions/ordersActions";
 import "./AdminHome.scss";
 
 function AdminHome() {
@@ -13,8 +14,13 @@ function AdminHome() {
       .catch((e) => console.log(e));
     dispatch(setProducts(response.data));
   };
+  const fetchOrders = async() => {
+    const response = await axios.get("http://localhost:8080/orders").catch((e) => console.log(e));
+    dispatch(setOrders(response.data));
+  }
   useEffect(() => {
     fetchProducts();
+    fetchOrders();
   }, []);
   return (
     <div className="admin-home">

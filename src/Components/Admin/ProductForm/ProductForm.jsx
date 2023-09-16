@@ -37,7 +37,8 @@ function ProductForm(props) {
   const submitNewProduct = (e) => {
     e.preventDefault();
     const newProduct = {
-      ...product
+      ...product,
+      price: Number(product.price)
     }
     axios.post("http://localhost:8080/products", newProduct).then((res) => {
       console.log(res.data);
@@ -55,7 +56,8 @@ function ProductForm(props) {
   const updateProduct = (e) => {
     e.preventDefault();
     const updatedProduct = {
-      ...product
+      ...product,
+      price: Number(product.price)
     }
     axios.patch(`http://localhost:8080/products/${product.id}`, updatedProduct).then((res) => {
       console.log(res.data);

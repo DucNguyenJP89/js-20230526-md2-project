@@ -20,6 +20,8 @@ import AdminProductList from "./Components/Admin/AdminProductsList/AdminProductL
 import AdminHome from "./Pages/Admin/AdminHome/AdminHome";
 import SideBar from "./Components/Admin/SideBar/SideBar";
 import AdminItemDetails from "./Components/Admin/AdminItemDetails/AdminItemDetails";
+import AdminOrdersList from "./Components/Admin/AdminOrdersList/AdminOrdersList";
+import AdminOrderDetails from "./Components/Admin/AdminOrderDetails/AdminOrderDetails";
 
 function App() {
   const location = useLocation();
@@ -36,6 +38,8 @@ function App() {
               <Route index element={<Dashboard />} />  
               <Route path="products" element={<AdminProductList />} />
               <Route path="products/:id" element={<AdminItemDetails />} />
+              <Route path="orders" element={<AdminOrdersList />} />
+              <Route path="orders/:id" element={<AdminOrderDetails />} />
             </Route>
           </Route>
           <Route path="admin/login" element={<AdminLogin />} />

@@ -10,7 +10,7 @@ function SideBar() {
       </div>
       <div className="admin-links">
         <NavLink to={'/admin/products'}>Products</NavLink>
-        <NavLink>Orders</NavLink>
+        <NavLink to={'/admin/orders'}>Orders</NavLink>
         <NavLink>Users</NavLink>
       </div>
     </div>
