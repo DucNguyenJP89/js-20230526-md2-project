@@ -20,3 +20,17 @@ export const setCategory = (category) => {
     payload: category,
   }
 }
+
+export const addNewProduct = (product) => {
+  return {
+    type: typeActions.ADD_NEW_PRODUCT,
+    payload: product,
+  }
+}
+
+export const editProduct = (product) => {
+  return {
+    type: typeActions.EDIT_PRODUCT,
+    payload: product,
+  }
+}

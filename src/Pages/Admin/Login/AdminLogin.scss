@@ -1,0 +1,50 @@
+.admin-login {
+  width: 100%;
+  padding: 120px 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  h2 {
+    font-size: 24px;
+    font-weight: 700;
+  }
+  .form {
+    width: 30%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #000;
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #999;
+      margin: 10px 0;
+    }
+    input.error-input {
+      border: 1px solid red;
+      margin: 0;
+    }
+    button {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: none;
+      font-family: 'Playfair Display', sans-serif;
+      background-color: #333;
+      color: #fff;
+    }
+    button:hover {
+      background-color: #000;
+    }
+    .error {
+      font-size: 14px;
+      color: red;
+      text-align: right;
+      margin-bottom: 10px;
+    }
+    .authen-error {
+      font-size: 16px;
+      color: red;
+      text-align: center;
+      font-weight: 700;
+    }
+  }
+}

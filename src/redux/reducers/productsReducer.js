@@ -8,6 +8,19 @@ export const productsReducer = (state=inititalState, { type, payload }) => {
   switch (type) {
     case typeActions.SET_PRODUCTS:
       return { ...state, products: payload };
+    case typeActions.ADD_NEW_PRODUCT:
+      return { 
+        ...state, 
+        products: [
+          ...state.products,
+          payload
+        ] 
+      }
+    case typeActions.EDIT_PRODUCT:
+      return {
+        ...state,
+        products: state.products.map((product) => product.id === payload.id ? payload : product)
+      }
     default:
       return state;
   }

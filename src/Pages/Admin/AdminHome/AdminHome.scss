@@ -1,0 +1,46 @@
+.admin-home {
+  margin-left: 180px;
+  padding: 20px;
+  font-family: 'Montserrat', sans-serif;
+  .admin-products-list {
+    margin-top: 80px;
+    .list-table {
+      padding: 20px 0;
+    }
+  }
+  .admin-item-details {
+    margin-top: 80px;
+    text-align: center;
+    .product-form {
+      width: 80%;
+      margin: 0 auto;
+      margin-top: 40px;
+      form {
+        div {
+          margin: 10px 0;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          input, select, textarea {
+            padding: 10px;
+            width: 70%;
+            border: 1px solid #999;
+          }
+        }
+        .submit-btn {
+          justify-content: center;
+          button {
+            width: 40%;
+            padding: 10px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+          }
+          button:hover {
+            background-color: #000;
+          }
+        }
+      }
+    }
+  }
+}
