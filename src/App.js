@@ -38,7 +38,7 @@ function App() {
         <Routes>
           <Route element={<ProtectedPage />}>
             <Route path="/admin" element={<AdminHome />}>
-              <Route index element={<Dashboard />} />  
+              <Route index element={<AdminProductList />} />  
               <Route path="products" element={<AdminProductList />} />
               <Route path="products/:id" element={<AdminItemDetails />} />
               <Route path="orders" element={<AdminOrdersList />} />

@@ -66,7 +66,7 @@ function ProductDetails() {
             Color: <span>{product?.colour?.toUpperCase()}</span>
           </div>
           <div className="product-nav">
-            TO DO
+            <img src={product?.colourImg} alt="colour of product" />
           </div>
         </div>
         <div className="add-button">
