@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import './UserOrders.scss'
 
@@ -53,7 +54,10 @@ function UserOrders() {
         ) 
         : 
         (
-          <div>No order history</div>
+          <div className='orders-container'>
+            <h3>You have no order yet</h3>
+            <NavLink to={'/'}>Start browsing now</NavLink>
+          </div>
         )
       }
     </div>

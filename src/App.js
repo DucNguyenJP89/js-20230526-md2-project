@@ -36,9 +36,10 @@ function App() {
       <div className="App">
         <SideBar />
         <Routes>
+          <Route path="admin/login" element={<AdminLogin />} />
           <Route element={<ProtectedPage />}>
             <Route path="/admin" element={<AdminHome />}>
-              <Route index element={<AdminProductList />} />  
+              <Route index element={<AdminProductList />} />
               <Route path="products" element={<AdminProductList />} />
               <Route path="products/:id" element={<AdminItemDetails />} />
               <Route path="orders" element={<AdminOrdersList />} />
@@ -47,7 +48,6 @@ function App() {
               <Route path="users/:id" element={<AdminUserDetails />} />
             </Route>
           </Route>
-          <Route path="admin/login" element={<AdminLogin />} />
         </Routes>
       </div>
     );

@@ -17,7 +17,7 @@ function AdminLogin() {
   const [ errors, setErrors ] = useState({});
   useEffect(() => {
     if (isAdmin) {
-      navigate("/admin/dashboard");
+      navigate("/admin/products");
     }
   })
   const handleInput = (e) => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import HomeCarousel from '../../Components/HomeCarousel/HomeCarousel'
 import ItemsCarousel from '../../Components/ItemsCarousel/ItemsCarousel';
 import "./Homepage.css";
@@ -9,6 +9,7 @@ import { setOrders } from '../../redux/actions/ordersActions';
 
 function Homepage() {
   const dispatch = useDispatch();
+  const [ check, setCheck ] = useState(false);
   const fetchProducts = async () => {
     const response = await axios.get("http://localhost:8080/products").catch((e) => console.log(e));
     dispatch(setProducts(response.data));
@@ -16,11 +17,12 @@ function Homepage() {
   const fetchOrders = async () => {
     const response = await axios.get("http://localhost:8080/orders").catch((e) => console.log(e));
     dispatch(setOrders(response.data));
+    setCheck(!check);
   };
   useEffect(() => {
     fetchProducts();
     fetchOrders();
-  }, [])
+  }, [check])
   const featureBanner = [{
     imgPath: "https://www.pedroshoes.com/on/demandware.static/-/Library-Sites-Pedro/default/dwd08b7d0c/images/homepage/2023/21aug23/wk34-homepage-a1.jpg",
     altText: "Feature Banner",

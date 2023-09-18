@@ -46,7 +46,7 @@ function AdminOrderDetails() {
         </div>
         <div className="info-group">
           <div className="title">Order User</div>
-          <div className="text">{orderUser.first} {orderUser.last} (User ID: {orderDetails.order_user})</div>
+          <div className="text">{orderUser?.first} {orderUser?.last} (User ID: {orderDetails.order_user})</div>
         </div>
         <div className="info-group">
           <div className="title">Order Status</div>
