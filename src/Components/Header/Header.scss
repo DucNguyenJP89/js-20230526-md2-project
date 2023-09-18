@@ -81,11 +81,16 @@
     font-weight: 700;
     width: 100%;
     border: none;
-    margin: 10px 0;
+    padding: 8px 0;
+    margin: 4px 0;
+    background-color: transparent;
+  }
+  button:hover {
+    background-color: #ccc;
+    border-radius: 4px;
   }
   .button-logout {
     font-family: 'Montserrat', sans-serif;
-    background-color: transparent;
   }
   .button-login {
     padding: 10px 0;

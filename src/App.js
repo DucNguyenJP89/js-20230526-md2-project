@@ -22,6 +22,9 @@ import SideBar from "./Components/Admin/SideBar/SideBar";
 import AdminItemDetails from "./Components/Admin/AdminItemDetails/AdminItemDetails";
 import AdminOrdersList from "./Components/Admin/AdminOrdersList/AdminOrdersList";
 import AdminOrderDetails from "./Components/Admin/AdminOrderDetails/AdminOrderDetails";
+import AdminUsersList from "./Components/Admin/AdminUsersList/AdminUsersList";
+import AdminUserDetails from "./Components/Admin/AdminUserDetails/AdminUserDetails";
+import UserOrders from "./Pages/UserOrders/UserOrders";
 
 function App() {
   const location = useLocation();
@@ -40,6 +43,8 @@ function App() {
               <Route path="products/:id" element={<AdminItemDetails />} />
               <Route path="orders" element={<AdminOrdersList />} />
               <Route path="orders/:id" element={<AdminOrderDetails />} />
+              <Route path="users" element={<AdminUsersList />} />
+              <Route path="users/:id" element={<AdminUserDetails />} />
             </Route>
           </Route>
           <Route path="admin/login" element={<AdminLogin />} />
@@ -60,6 +65,7 @@ function App() {
         <Route path="/cart" element={<CartDetails />} />
         <Route element={<PrivateRoute />}>
           <Route path="/check-out" element={<CheckOut />} />
+          <Route path="/user/orders" element={<UserOrders />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />

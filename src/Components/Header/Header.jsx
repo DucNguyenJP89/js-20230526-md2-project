@@ -97,8 +97,12 @@ function Header() {
           {Object.keys(loginUser).length > 0 ? (
             <div>
               <div>
-                Welcome back, {loginUser.first} {loginUser.last}
+                Welcome back, <b>{loginUser.first} {loginUser.last}</b>!
               </div>
+              <button onClick={() => {
+                setOpenMenu(false);
+                navigate('/user/orders')
+                }}>Purchase History</button>
               <button className="button-logout" onClick={handleLogout}>
                 Logout
               </button>

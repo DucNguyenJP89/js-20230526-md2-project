@@ -11,7 +11,7 @@ function SideBar() {
       <div className="admin-links">
         <NavLink to={'/admin/products'}>Products</NavLink>
         <NavLink to={'/admin/orders'}>Orders</NavLink>
-        <NavLink>Users</NavLink>
+        <NavLink to={'/admin/users'}>Users</NavLink>
       </div>
     </div>
   )

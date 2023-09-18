@@ -2,10 +2,18 @@
   margin-left: 180px;
   padding: 20px;
   font-family: 'Montserrat', sans-serif;
-  .admin-products-list {
+  .admin-products-list, .admin-orders-list {
     margin-top: 80px;
     .list-table {
       padding: 20px 0;
+      button.delete-btn {
+        border: none;
+        background-color: transparent;
+      }
+      button.delete-btn:hover {
+        background-color: #eee;
+        border-radius: 4px;
+      }
     }
   }
   .admin-item-details {
@@ -41,6 +49,68 @@
           }
         }
       }
+    }
+  }
+  .admin-order-details-container{
+    margin-top: 80px;
+    h2 {
+      margin-bottom: 20px;
+    }
+    .order-info, .order-customer-info  {
+      padding: 20px;
+      margin: 10px;
+      border: 1px solid #000;
+      .info-group {
+        display: flex;
+        text-align: left;
+        .title {
+          width: 20%;
+          border-right: 1px solid #000;
+          font-weight: 700;
+          padding: 6px 0;
+        }
+        .text {
+          width: 80%;
+          padding: 6px 0;
+          padding-left: 20px;
+        }
+      }
+    }
+    .order-items-details {
+      // padding: 20px;
+      margin: 10px;
+      .ant-table-cell img {
+        width: 100%;
+      }
+    }
+  }
+  .admin-user-details-container {
+    margin-top: 80px;
+    h2 {
+      margin-bottom: 20px;
+    }
+    .user-info {
+      padding: 20px;
+      margin: 10px;
+      border: 1px solid #000;
+      .info-group {
+        display: flex;
+        text-align: left;
+        .title {
+          width: 20%;
+          border-right: 1px solid #000;
+          font-weight: 700;
+          padding: 6px 0;
+        }
+        .text {
+          width: 80%;
+          padding: 6px 0;
+          padding-left: 20px;
+        }
+      }
+    }
+    .user-orders-container {
+      margin: 20px 0;
     }
   }
 }

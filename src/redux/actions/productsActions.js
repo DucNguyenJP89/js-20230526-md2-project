@@ -34,3 +34,10 @@ export const editProduct = (product) => {
     payload: product,
   }
 }
+
+export const deleteProduct = (id) => {
+  return {
+    type: typeActions.DELETE_PRODUCT,
+    payload: id
+  }
+}

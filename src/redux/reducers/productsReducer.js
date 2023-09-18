@@ -1,10 +1,10 @@
 import { typeActions } from "../constants/typeActions";
 
-const inititalState = {
+const initialState = {
   products: [],
 };
 
-export const productsReducer = (state=inititalState, { type, payload }) => {
+export const productsReducer = (state=initialState, { type, payload }) => {
   switch (type) {
     case typeActions.SET_PRODUCTS:
       return { ...state, products: payload };
@@ -20,6 +20,11 @@ export const productsReducer = (state=inititalState, { type, payload }) => {
       return {
         ...state,
         products: state.products.map((product) => product.id === payload.id ? payload : product)
+      }
+    case typeActions.DELETE_PRODUCT:
+      return {
+        ...state,
+        products: state.products.filter((product) => product.id !== payload)
       }
     default:
       return state;

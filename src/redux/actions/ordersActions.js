@@ -13,3 +13,10 @@ export const selectedOrder = (order) => {
     payload: order,
   }
 }
+
+export const editOrder = (order) => {
+  return {
+    type: typeActions.EDIT_ORDER,
+    payload: order,
+  }
+}
