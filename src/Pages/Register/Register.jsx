@@ -39,6 +39,7 @@ function Register() {
         password: userInput.password,
         newsletter: userInput.newsletter,
         agree: userInput.agree,
+        joined_at: new Date(),
       };
       axios.post("http://localhost:8080/users", formData).then((res) => {
         Swal.fire({
